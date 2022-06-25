@@ -1,0 +1,85 @@
+apply from: "$project.rootDir/dependencies.gradle"
+
+android {
+  compileSdk versions.compileSdk
+
+  defaultConfig {
+    minSdkVersion versions.minSdk
+    targetSdkVersion versions.compileSdk
+    versionCode versions.versionCode
+    versionName versions.versionName
+
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    javaCompileOptions {
+      annotationProcessorOptions {
+        arguments += ["room.schemaLocation": "$projectDir/schemas".toString()]
+        arguments += ["dagger.hilt.disableModulesHaveInstallInCheck": "true"]
+      }
+    }
+
+    vectorDrawables {
+      useSupportLibrary true
+    }
+  }
+
+  buildTypes {
+    debug {
+      testCoverageEnabled true
+      debuggable true
+    }
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  lintOptions {
+    abortOnError false
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_11
+    targetCompatibility JavaVersion.VERSION_11
+  }
+
+  kotlinOptions {
+    jvmTarget = "11"
+  }
+
+  packagingOptions {
+    resources {
+      excludes += '/META-INF/{AL2.0,LGPL2.1}'
+    }
+  }
+
+  sourceSets {
+    test.assets.srcDirs += files("$projectDir/schemas".toString())
+  }
+
+  testOptions {
+    unitTests {
+      includeAndroidResources = true
+      returnDefaultValues = true
+    }
+  }
+}
+
+dependencies {
+  // Android
+  implementation "androidx.core:core-ktx:$versions.core_ktx"
+  implementation "androidx.appcompat:appcompat:$versions.appcompat"
+  implementation "com.google.android.material:material:$versions.material"
+  implementation "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
+
+  // DI
+  implementation "com.google.dagger:hilt-android:$versions.hilt"
+  kapt "com.google.dagger:hilt-compiler:$versions.hilt"
+
+  // Test
+  testImplementation "junit:junit:$versions.junit"
+  androidTestImplementation "androidx.test.ext:junit:$versions.androidx_junit"
+  androidTestImplementation "androidx.test.espresso:espresso-core:$versions.espresso"
+  androidTestImplementation "com.google.dagger:hilt-android-testing:$versions.hilt"
+  kaptAndroidTest "com.google.dagger:hilt-compiler:$versions.hilt"
+}

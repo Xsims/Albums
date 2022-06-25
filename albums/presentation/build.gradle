@@ -1,0 +1,12 @@
+plugins {
+  id "com.android.library"
+  id "kotlin-android"
+  id "kotlin-kapt"
+}
+
+apply from: "$project.rootDir/default_build.gradle"
+
+dependencies {
+  api project(':albums:domain')
+  implementation project(':common')
+}

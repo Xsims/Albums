@@ -1,0 +1,27 @@
+plugins {
+  id "com.android.library"
+  id "kotlin-android"
+  id "kotlin-kapt"
+}
+
+apply from: "$project.rootDir/default_build.gradle"
+
+dependencies {
+  implementation project(':common')
+  implementation project(':domain')
+
+  // Database
+  implementation "androidx.room:room-runtime:$versions.room"
+  implementation "androidx.room:room-ktx:$versions.room"
+  testImplementation project(path: ':test-shared')
+  kapt "androidx.room:room-compiler:$versions.room"
+
+  // Network
+  implementation "com.github.skydoves:sandwich:$versions.sandwich"
+  implementation "com.squareup.okhttp3:logging-interceptor:$versions.okhttp"
+  implementation "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+
+  // Test
+  testImplementation "com.squareup.okhttp3:mockwebserver:$versions.okhttp"
+  testImplementation project(':test-shared')
+}

@@ -13,9 +13,9 @@ dependencyResolutionManagement {
   }
 }
 rootProject.name = "Albums"
-include ':albums:presentation'
-include ':albums:domain'
-include ':albums:data'
 include ':app'
 include ':common'
 include ':test-shared'
+include ':data'
+include ':domain'
+include ':presentation'

@@ -43,4 +43,8 @@ ext.versions = [
     espresso : '3.4.0',
     robolectric : '4.8',
     androidx_test : '1.4.0',
+    mockk : '1.12.0',
+    turbine : '0.8.0',
+    android_arch_core_testing : '2.1.0',
+    coroutines_test : '1.6.2',
 ]

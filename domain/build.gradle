@@ -6,10 +6,26 @@ plugins {
 
 apply from: "$project.rootDir/default_build.gradle"
 
+android {
+  tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions.freeCompilerArgs += [
+        "-Xopt-in=kotlinx.coroutines.InternalCoroutinesApi",
+        "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+    ]
+  }
+}
+
+
 dependencies {
   implementation project(':common')
 
   // Coroutines
   implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines"
   implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
+
+  // Test
+  testImplementation "io.mockk:mockk:$versions.mockk"
+  testImplementation "app.cash.turbine:turbine:$versions.turbine"
+  testImplementation "androidx.arch.core:core-testing:$versions.android_arch_core_testing"
+  testImplementation project(':test-shared')
 }

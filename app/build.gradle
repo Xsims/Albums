@@ -11,13 +11,6 @@ android {
   defaultConfig {
     applicationId "com.xsims.albums"
   }
-
-  tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
-    kotlinOptions.freeCompilerArgs += [
-        "-Xopt-in=kotlinx.coroutines.InternalCoroutinesApi",
-        "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
-    ]
-  }
 }
 
 dependencies {

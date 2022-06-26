@@ -4,6 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Documents/Projects/Leboncoin/v2/Albums/app/src/main/res/layout/activity_main.xml" value="0.23645833333333333" />
+        <entry key="..\:/Documents/Projects/Leboncoin/v2/Albums/common/src/main/res/layout/recycler_empty_layout.xml" value="0.1" />
+        <entry key="..\:/Documents/Projects/Leboncoin/v2/Albums/common/src/main/res/layout/recycler_error_layout.xml" value="0.23645833333333333" />
+        <entry key="..\:/Documents/Projects/Leboncoin/v2/Albums/common/src/main/res/layout/recycler_loading_layout.xml" value="0.23645833333333333" />
+        <entry key="..\:/Documents/Projects/Leboncoin/v2/Albums/common/src/main/res/layout/ui_state_recycler_layout.xml" value="0.23645833333333333" />
         <entry key="..\:/Documents/Projects/Leboncoin/v2/Albums/presentation/src/main/res/layout/fragment_home.xml" value="0.22239583333333332" />
         <entry key="..\:/Documents/Projects/Leboncoin/v2/Albums/presentation/src/main/res/layout/item_music.xml" value="0.23645833333333333" />
       </map>

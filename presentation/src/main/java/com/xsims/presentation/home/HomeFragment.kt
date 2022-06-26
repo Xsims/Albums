@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.xsims.common.base_ui.BaseFragment
@@ -34,26 +33,32 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
 
-    binding.musicRecyclerView.apply {
+    binding.uiStateRecyclerView.recyclerView.apply {
       layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
       adapter = homeAdapter
     }
 
-    vm.musics.observe(viewLifecycleOwner) {
-      when (it) {
-        is Success -> homeAdapter.dataSet = it.data.map { music ->
-          // TODO : Improve mapping with interface or simply creating mapper
-          MusicUi(
-            albumId = music.id,
-            id = music.albumId,
-            title = music.title,
-            url = music.url,
-            thumbnailUrl = music.thumbnailUrl,
-          )
+    // TODO : pass viewLifecycleOwner to UiStateRecyclerView to let data auto update
+    vm.musics.observe(viewLifecycleOwner) { uiState ->
+      when (uiState) {
+        is Success -> {
+          homeAdapter.dataSet = uiState.data.map { music ->
+            // TODO : Improve mapping with interface or simply creating mapper
+            MusicUi(
+              albumId = music.id,
+              id = music.albumId,
+              title = music.title,
+              url = music.url,
+              thumbnailUrl = music.thumbnailUrl,
+            )
+          }
+          // TODO : pass data directly in the method that hides all views to display the data
+          binding.uiStateRecyclerView.hideAllViews()
         }
         // TODO : Extract text in string resource app module (be careful of circular dependency)
-        is Loading -> Toast.makeText(context, "Loading", Toast.LENGTH_LONG).show()
-        is Error -> Toast.makeText(context, it.errorMessage, Toast.LENGTH_LONG).show()
+        is Loading -> binding.uiStateRecyclerView.showLoadingView()
+        is Error -> binding.uiStateRecyclerView.showErrorView(uiState.errorMessage) {
+        }
       }
     }
   }

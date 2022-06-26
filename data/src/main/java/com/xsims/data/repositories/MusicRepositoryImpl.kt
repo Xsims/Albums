@@ -34,5 +34,5 @@ class MusicRepositoryImpl(
           else
             emit(UiState.Error(exception as Exception))
         }
-    }.onStart { UiState.Loading }.flowOn(Dispatchers.IO)
+    }.onStart { emit(UiState.Loading) }.flowOn(Dispatchers.IO)
 }

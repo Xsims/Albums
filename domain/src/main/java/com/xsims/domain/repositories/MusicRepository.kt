@@ -1,6 +1,6 @@
 package com.xsims.domain.repositories
 
-import com.xsims.common.base.UiState
+import com.xsims.common.models.UiState
 import com.xsims.domain.models.Music
 import kotlinx.coroutines.flow.Flow
 

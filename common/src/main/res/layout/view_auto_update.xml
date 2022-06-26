@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.xsims.common.models.UiState"
+            />
+    </data>
+
+    <merge xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <FrameLayout
+            android:id="@+id/fl_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <ProgressBar
+            android:id="@+id/pb_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <FrameLayout
+            android:id="@+id/fl_emp_iew_container"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            >
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_empty_view_container"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            />
+    </merge>
+</layout>

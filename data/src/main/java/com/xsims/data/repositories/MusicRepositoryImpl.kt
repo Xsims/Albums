@@ -3,7 +3,7 @@ package com.xsims.data.repositories
 import androidx.annotation.WorkerThread
 import com.skydoves.sandwich.suspendOnException
 import com.skydoves.sandwich.suspendOnSuccess
-import com.xsims.common.base.UiState
+import com.xsims.common.models.UiState
 import com.xsims.data.local.db.MusicDatabaseSource
 import com.xsims.data.remote.api.MusicService
 import com.xsims.domain.models.Music

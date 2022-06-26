@@ -1,4 +1,4 @@
-package com.xsims.common.base
+package com.xsims.common.models
 
 sealed class UiState<out R> {
   data class Success<out T>(val data: T) : UiState<T>()

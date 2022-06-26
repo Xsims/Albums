@@ -5,15 +5,14 @@ plugins {
 }
 
 apply from: "$project.rootDir/default_build.gradle"
+apply plugin: 'kotlin-kapt'
 
 dependencies {
   implementation project(':common')
   implementation project(':domain')
 
   // Database
-  implementation "androidx.room:room-runtime:$versions.room"
   implementation "androidx.room:room-ktx:$versions.room"
-  testImplementation project(path: ':test-shared')
   kapt "androidx.room:room-compiler:$versions.room"
 
   // Network

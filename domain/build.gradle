@@ -8,4 +8,8 @@ apply from: "$project.rootDir/default_build.gradle"
 
 dependencies {
   implementation project(':common')
+
+  // Coroutines
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines"
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
 }

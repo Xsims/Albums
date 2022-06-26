@@ -5,3 +5,9 @@ plugins {
 }
 
 apply from: "$project.rootDir/default_build.gradle"
+
+dependencies {
+
+  // Coil
+  implementation "io.coil-kt:coil:$versions.coil"
+}

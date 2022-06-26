@@ -1,4 +1,4 @@
-package com.xsims.common.base
+package com.xsims.common.models
 
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue

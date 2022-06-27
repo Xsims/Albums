@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+  <data>
+
+    <variable
+        name="vm"
+        type="com.xsims.presentation.details.DetailsViewModel"
+        />
+  </data>
+
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+      <ImageView
+          android:id="@+id/image_view_music"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:scaleType="fitCenter"
+          app:layout_constraintLeft_toLeftOf="parent"
+          app:layout_constraintRight_toRightOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          />
+
+      <LinearLayout
+          android:id="@+id/linear_layout_music_id"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/image_view_music"
+          >
+
+        <TextView
+            android:id="@+id/text_view_music_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Music Id"
+            />
+
+        <TextView
+            android:id="@+id/text_view_album_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Title"
+            />
+
+      </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </ScrollView>
+</layout>

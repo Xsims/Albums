@@ -44,6 +44,7 @@ Go to the [Releases](https://github.com/Xsims/Albums/releases) to download the l
   handling error responses.
   
 # Future Features
+ - Save last position in RecyclerView
  - Network Listener (to show users when internet connexion is back) 
  - Improve Design with Netflix's List Style
  - Navigation with Shared Element Transition

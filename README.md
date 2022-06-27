@@ -11,8 +11,8 @@ A technical demo Album List app using Kotlin based on modern Android tech-stacks
   <a href="https://github.com/Xsims/Albums/actions"><img alt="Build Status" src="https://github.com/Xsims/Albums/Test/badge.svg"/></a>
 </p>
 
-<!-- ## Download
-Go to the [Releases](https://github.com/Xsims/Albums/releases) to download the latest APK. -->
+## Download
+Go to the [Releases](https://github.com/Xsims/Albums/releases) to download the latest APK.
 
 ## Screenshots
 

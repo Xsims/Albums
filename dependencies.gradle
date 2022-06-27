@@ -16,6 +16,7 @@ ext.versions = [
     appcompat : '1.4.2',
     material : '1.6.1',
     constraint_layout :'2.1.4',
+    swipe_refresh_layout: '1.1.0',
 
     // Navigation
     navigation : '2.4.2',

@@ -8,6 +8,7 @@ import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.xsims.common.R
+import com.xsims.common.base_ui.RecyclerViewBindingAdapter
 import com.xsims.common.databinding.RecyclerEmptyLayoutBinding
 import com.xsims.common.databinding.RecyclerErrorLayoutBinding
 import com.xsims.common.databinding.RecyclerLoadingLayoutBinding
@@ -32,6 +33,9 @@ class UiStateRecyclerView constructor(
   // expose the recycler view
   val recyclerView: RecyclerView
     get() = binding.customRecyclerView
+
+  private val adapter: RecyclerViewBindingAdapter
+    get() = binding.customRecyclerView.adapter as RecyclerViewBindingAdapter
 
   var errorText: String = ""
     set(value) {
@@ -82,7 +86,7 @@ class UiStateRecyclerView constructor(
     }
   }
 
-  fun showEmptyView(msg: String? = null) {
+  private fun showEmptyView(msg: String? = null) {
     emptyText = msg ?: emptyText
     loadingBinding.root.visibility = View.GONE
     errorBinding.root.visibility = View.GONE
@@ -105,7 +109,17 @@ class UiStateRecyclerView constructor(
     loadingBinding.root.visibility = View.VISIBLE
   }
 
+  fun <T : Any> showDataView(data: List<T>) {
+    if (data.isEmpty())
+      showEmptyView()
+    else {
+      hideAllViews()
+      adapter.dataSet = data
+    }
+  }
+
   fun hideAllViews() {
+    adapter.dataSet = emptyList()
     loadingBinding.root.visibility = View.GONE
     errorBinding.root.visibility = View.GONE
     emptyBinding.root.visibility = View.GONE

@@ -9,4 +9,6 @@ apply from: "$project.rootDir/default_build.gradle"
 dependencies {
   implementation project(':domain')
   implementation project(':common')
+
+  implementation "androidx.swiperefreshlayout:swiperefreshlayout:$versions.swipe_refresh_layout"
 }

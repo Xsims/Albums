@@ -17,7 +17,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
   private val vm: HomeViewModel by viewModel()
-  private val homeAdapter by lazy { HomeAdapter { } }
 
   override fun onCreateView(
     inflater: LayoutInflater,
@@ -35,29 +34,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     binding.uiStateRecyclerView.recyclerView.apply {
       layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-      adapter = homeAdapter
+      adapter = HomeAdapter {
+
+      }
     }
 
-    // TODO : pass viewLifecycleOwner to UiStateRecyclerView to let data auto update
+    binding.swipeRefreshLayout.setOnRefreshListener {
+      binding.uiStateRecyclerView.hideAllViews()
+      vm.reloadMusics()
+      binding.swipeRefreshLayout.isRefreshing = false
+    }
+
     vm.musics.observe(viewLifecycleOwner) { uiState ->
       when (uiState) {
-        is Success -> {
-          homeAdapter.dataSet = uiState.data.map { music ->
-            // TODO : Improve mapping with interface or simply creating mapper
-            MusicUi(
-              albumId = music.id,
-              id = music.albumId,
-              title = music.title,
-              url = music.url,
-              thumbnailUrl = music.thumbnailUrl,
-            )
-          }
-          // TODO : pass data directly in the method that hides all views to display the data
-          binding.uiStateRecyclerView.hideAllViews()
-        }
-        // TODO : Extract text in string resource app module (be careful of circular dependency)
+        is Success -> binding.uiStateRecyclerView.showDataView(uiState.data.map { MusicUi.mapFrom(it) })
         is Loading -> binding.uiStateRecyclerView.showLoadingView()
         is Error -> binding.uiStateRecyclerView.showErrorView(uiState.errorMessage) {
+          vm.reloadMusics()
         }
       }
     }

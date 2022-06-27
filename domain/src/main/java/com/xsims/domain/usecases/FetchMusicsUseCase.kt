@@ -1,14 +1,13 @@
 package com.xsims.domain.usecases
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.asLiveData
 import com.xsims.common.models.UiState
 import com.xsims.domain.models.Music
 import com.xsims.domain.repositories.MusicRepository
+import kotlinx.coroutines.flow.Flow
 
 class FetchMusicsUseCase(
   private val musicRepository: MusicRepository
 ) {
-  operator fun invoke(): LiveData<UiState<List<Music>>> =
-    musicRepository.getMusics().asLiveData()
+  operator fun invoke(): Flow<UiState<List<Music>>> =
+    musicRepository.getMusics()
 }

@@ -3,11 +3,11 @@ package com.xsims.domain.usecases
 import com.xsims.common.models.UiState
 import com.xsims.domain.models.Music
 import com.xsims.domain.repositories.MusicRepository
-import kotlinx.coroutines.flow.Flow
 
-class FetchMusicsUseCase(
+class FetchMusicUseCase(
   private val musicRepository: MusicRepository
 ) {
-  operator fun invoke(): Flow<UiState<List<Music>>> =
-    musicRepository.getMusics()
+  suspend fun getMusic(musicId: Int): UiState<Music> {
+    return musicRepository.getMusic(musicId)
+  }
 }

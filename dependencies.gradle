@@ -1,8 +1,8 @@
 ext.versions = [
     minSdk : 24,
     compileSdk : 32,
-    versionCode : 3,
-    versionName : '1.1.0',
+    versionCode : 4,
+    versionName : '1.2.0',
 
     gradle : '7.2.1',
     kotlin : '1.6.10',
@@ -16,6 +16,7 @@ ext.versions = [
     appcompat : '1.4.2',
     material : '1.6.1',
     constraint_layout :'2.1.4',
+    swipe_refresh_layout: '1.1.0',
 
     // Navigation
     navigation : '2.4.2',
@@ -43,4 +44,8 @@ ext.versions = [
     espresso : '3.4.0',
     robolectric : '4.8',
     androidx_test : '1.4.0',
+    mockk : '1.12.0',
+    turbine : '0.8.0',
+    android_arch_core_testing : '2.1.0',
+    coroutines_test : '1.6.2',
 ]

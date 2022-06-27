@@ -1,4 +1,4 @@
-package com.xsims.albums
+package com.xsims.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,8 +7,8 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.xsims.albums.databinding.ActivityMainBinding
 import com.xsims.common.extensions.viewBinding
+import com.xsims.presentation.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

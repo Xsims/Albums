@@ -5,6 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import com.xsims.domain.models.Music
+import com.xsims.domain.models.MusicMapper
 
 @Entity
 data class MusicEntity(
@@ -29,4 +30,16 @@ data class MusicEntity(
   @ColumnInfo(name = "thumbnailUrl")
   @SerializedName("thumbnailUrl")
   override val thumbnailUrl: String
-) : Music
+) : Music {
+
+  companion object : MusicMapper {
+    override fun mapFrom(music: Music): Music =
+      MusicEntity(
+        albumId = music.albumId,
+        id = music.id,
+        title = music.title,
+        url = music.url,
+        thumbnailUrl = music.thumbnailUrl
+      )
+  }
+}

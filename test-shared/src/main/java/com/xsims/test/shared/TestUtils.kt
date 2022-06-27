@@ -6,9 +6,9 @@ object TestUtils {
   fun mockMusic(
     albumId: Int = 1,
     id: Int = 1,
-    title: String = "title",
-    url: String = "url",
-    thumbnailUrl: String = "thumbnailUrl"
+    title: String = "Say My Name.",
+    url: String = "Kakarot!",
+    thumbnailUrl: String = "Des kamas contre un code audio ?"
   ) =
     MusicEntity(
       albumId = albumId,

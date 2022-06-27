@@ -22,5 +22,6 @@ dependencies {
 
   // Test
   testImplementation "com.squareup.okhttp3:mockwebserver:$versions.okhttp"
+  testImplementation "io.mockk:mockk:$versions.mockk"
   testImplementation project(':test-shared')
 }

@@ -8,7 +8,7 @@ import com.xsims.presentation.databinding.ItemMusicBinding
 import com.xsims.presentation.models.MusicUi
 
 class HomeAdapter(
-  val onMusicItemClickListener: () -> (Unit)
+  val onMusicItemClickListener: (Int) -> (Unit)
 ) : RecyclerViewBindingAdapter(useDiffUtil = true) {
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BindingViewHolder {
@@ -20,7 +20,11 @@ class HomeAdapter(
   override fun onBindViewHolder(holder: BindingViewHolder, position: Int) {
     super.onBindViewHolder(holder, position)
     // TODO check type of item before applying listener
-    holder.binding.root.setOnClickListener { onMusicItemClickListener() }
+    holder.binding.root.setOnClickListener {
+      (dataSet[position] as? MusicUi)?.let { musicUi ->
+        onMusicItemClickListener(musicUi.id)
+      }
+    }
   }
 
   override fun areItemsTheSame(oldItem: Any, newItem: Any): Boolean = when {

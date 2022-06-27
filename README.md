@@ -42,6 +42,19 @@ Go to the [Releases](https://github.com/Xsims/Albums/releases) to download the l
   network data.
 - [Sandwich](https://github.com/skydoves/Sandwich) - construct lightweight http API response and
   handling error responses.
+  
+# Future Features
+ - Network Listener (to show users when internet connexion is back) 
+ - Improve Design with Netflix's List Style
+ - Navigation with Shared Element Transition
+ - Dark Mode set by user preference
+ - Filtering and Search bar
+ - Shimmer effect
+ - Splash Activity
+ - App Icon
+ - Espresso Tests
+ - Spotless with Klint formatter
+ - Kover, Jacoco & CodeCov to display code coverage badge
 
 # License
 

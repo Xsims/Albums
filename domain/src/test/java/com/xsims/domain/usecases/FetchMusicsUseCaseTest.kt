@@ -44,5 +44,8 @@ class FetchMusicsUseCaseTest {
     private val flow = MutableSharedFlow<UiState<List<Music>>>()
     suspend fun emit(value: UiState<List<Music>>) = flow.emit(value)
     override fun getMusics(): Flow<UiState<List<Music>>> = flow
+    override suspend fun getMusic(musicId: Int): UiState<Music> {
+      TODO("Not yet implemented")
+    }
   }
 }

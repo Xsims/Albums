@@ -9,9 +9,16 @@ import com.xsims.data.models.MusicEntity
 @Dao
 interface MusicDao {
 
+  // TODO : add suspend without AS triggers false positive error due to room lib version
   @Insert(onConflict = OnConflictStrategy.REPLACE)
-  suspend fun insertMusics(musics: List<MusicEntity>)
+  fun insertMusics(musics: List<MusicEntity>)
 
+  // TODO : add suspend without AS triggers false positive error due to room lib version
   @Query("SELECT * FROM musicEntity")
   fun getAllMusics(): List<MusicEntity>
+
+  // TODO : add suspend without AS triggers false positive error due to room lib version
+  @Query("SELECT * FROM musicEntity WHERE id = :musicId")
+  fun getMusic(musicId: Int): MusicEntity
+
 }

@@ -74,10 +74,6 @@ dependencies {
   implementation "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
   implementation 'androidx.work:work-runtime-ktx:2.7.1'
 
-  // Navigation
-  implementation "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
-  implementation "androidx.navigation:navigation-ui-ktx:$versions.navigation"
-
   // Architecture Components
   implementation "androidx.fragment:fragment-ktx:$versions.fragmentVersion"
   implementation "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycleVersion"

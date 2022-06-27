@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.xsims.common.base_ui.BaseFragment
 import com.xsims.common.models.UiState.Error
 import com.xsims.common.models.UiState.Loading
 import com.xsims.common.models.UiState.Success
+import com.xsims.presentation.R
 import com.xsims.presentation.databinding.FragmentHomeBinding
 import com.xsims.presentation.models.MusicUi
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -34,8 +36,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     binding.uiStateRecyclerView.recyclerView.apply {
       layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-      adapter = HomeAdapter {
-
+      adapter = HomeAdapter { musicId ->
+        val action = HomeFragmentDirections.actionHomeFragmentToDetailsFragment(musicId)
+        if (findNavController().currentDestination?.id == R.id.homeFragment)
+          findNavController().navigate(action)
       }
     }
 

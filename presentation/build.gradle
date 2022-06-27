@@ -2,6 +2,7 @@ plugins {
   id "com.android.library"
   id "kotlin-android"
   id "kotlin-kapt"
+  id "androidx.navigation.safeargs.kotlin"
 }
 
 apply from: "$project.rootDir/default_build.gradle"
@@ -9,6 +10,11 @@ apply from: "$project.rootDir/default_build.gradle"
 dependencies {
   implementation project(':domain')
   implementation project(':common')
+
+  // Navigation
+  implementation "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
+  implementation "androidx.navigation:navigation-ui-ktx:$versions.navigation"
+  implementation "androidx.navigation:navigation-dynamic-features-fragment:$versions.navigation"
 
   implementation "androidx.swiperefreshlayout:swiperefreshlayout:$versions.swipe_refresh_layout"
 }

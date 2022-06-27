@@ -7,4 +7,12 @@ sealed class UiState<out R> {
   }
 
   object Loading : UiState<Nothing>()
+
+  fun <T> mapData(lambda: (R) -> (T)): UiState<T> {
+    return when (this) {
+      is Success -> Success(lambda(data))
+      is Loading -> Loading
+      is Error -> Error(this.exception)
+    }
+  }
 }

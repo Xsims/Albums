@@ -35,4 +35,13 @@ class MusicRepositoryImpl(
             emit(UiState.Error(exception as Exception))
         }
     }.onStart { emit(UiState.Loading) }.flowOn(Dispatchers.IO)
+
+  @WorkerThread
+  override suspend fun getMusic(musicId: Int): UiState<Music> {
+    return try {
+      UiState.Success(musicDatabaseSource.getMusic(musicId))
+    } catch (exception: Exception) {
+      UiState.Error(exception)
+    }
+  }
 }

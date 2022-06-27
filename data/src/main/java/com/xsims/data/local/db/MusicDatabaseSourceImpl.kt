@@ -10,7 +10,11 @@ class MusicDatabaseSourceImpl(private val musicDao: MusicDao) : MusicDatabaseSou
     return musicDao.insertMusics(musics as List<MusicEntity>)
   }
 
-  override fun getAllMusics(): List<Music> {
+  override suspend fun getAllMusics(): List<Music> {
     return musicDao.getAllMusics()
+  }
+
+  override suspend fun getMusic(musicId: Int): Music {
+    return musicDao.getMusic(musicId)
   }
 }

@@ -71,9 +71,9 @@ class UiStateRecyclerView constructor(
       0
     ).apply {
       try {
-        errorText = getString(R.styleable.UiStateRecyclerView_errorText) ?: "Something went wrong"
+        errorText = getString(R.styleable.UiStateRecyclerView_errorText).toString()
         emptyText =
-          getString(R.styleable.UiStateRecyclerView_emptyText) ?: "Nothing to show"
+          getString(R.styleable.UiStateRecyclerView_emptyText).toString()
         errorIcon = getResourceId(
           R.styleable.UiStateRecyclerView_errorIcon,
           android.R.drawable.ic_menu_close_clear_cancel

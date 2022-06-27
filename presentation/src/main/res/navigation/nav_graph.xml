@@ -23,7 +23,7 @@
   <fragment
       android:id="@+id/detailsFragment"
       android:name="com.xsims.presentation.details.DetailsFragment"
-      android:label="DetailFragment"
+      android:label="@string/details"
       tools:layout="@layout/fragment_details">
     <argument
         android:name="musicId"

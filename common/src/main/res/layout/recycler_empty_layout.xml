@@ -11,8 +11,8 @@
 
   <ImageView
       android:id="@+id/empty_image"
-      android:layout_width="100dp"
-      android:layout_height="100dp"
+      android:layout_width="@dimen/empty_image_view_size"
+      android:layout_height="@dimen/empty_image_view_size"
       android:src="@android:drawable/ic_menu_help"
       />
 
@@ -21,7 +21,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="16dp"
-      android:text="Nothing here!"
+      android:text="@string/nothing_here"
       android:alpha="0.3"
       android:textColor="#000000"
       />
